@@ -60,9 +60,11 @@ app.delete("/api/notes/:id", (req, res)=>{
 
         const data = JSON.parse(file);
 
-        for(element in data){
-            // if(data[i].title)
-        }
+        for(i in data){
+            if(data[i].id == req.params.id){
+                data.splice(i, 1)
+            }
+        }        
 
         fs.writeFile(path.join(__dirname, "./db/db.json"), JSON.stringify(data), err => {
             if(err){
