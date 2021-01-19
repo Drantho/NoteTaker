@@ -34,8 +34,35 @@ app.post("/api/notes", (req, res) => {
         }
 
         const data = JSON.parse(file);
+        const note = {...req.body};
 
-        data.push(req.body);
+        note.id = parseInt(data[data.length-1].id);
+        note.id ++;
+
+        data.push(note);
+
+        fs.writeFile(path.join(__dirname, "./db/db.json"), JSON.stringify(data, null, 4), err => {
+            if(err){
+                throw(err)
+            }
+
+            res.status(200).json(data);
+        })
+        
+    })
+})
+
+app.delete("/api/notes/:id", (req, res)=>{
+    fs.readFile(path.join(__dirname, "./db/db.json"), "utf-8",(err, file) => {
+        if(err){
+            throw(err)
+        }
+
+        const data = JSON.parse(file);
+
+        for(element in data){
+            // if(data[i].title)
+        }
 
         fs.writeFile(path.join(__dirname, "./db/db.json"), JSON.stringify(data), err => {
             if(err){

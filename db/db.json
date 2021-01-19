@@ -1,1 +1,17 @@
-[{"title":"Test Title","text":"Test text"},{"title":"Postman Test 1","text":"this is a test of route post api/notes withdata"}]
+[
+    {
+        "id": "0",
+        "title": "Test Title",
+        "text": "Test text"
+    },
+    {
+        "id": "1",
+        "title": "Postman Test 1",
+        "text": "this is a test of route post api/notes withdata"
+    },
+    {
+        "title": "Postman Test 2",
+        "text": "this is a test of route post api/notes withdata testing unique ids",
+        "id": 2
+    }
+]
